@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_navigation"
+    app:startDestination="@id/splash_fragment">
+
+
+    <fragment
+        android:id="@+id/splash_fragment"
+        android:name="com.example.jetpack_navigation.fragment.SplashFragment"
+        android:label="splash"
+        tools:layout="@layout/fragment_splash">
+
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/login_fragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.example.jetpack_navigation.fragment.LoginFragment"
+        android:label="login"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/register_fragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/register_fragment"
+        android:name="com.example.jetpack_navigation.fragment.RegisterFragment"
+        android:label="register"
+        tools:layout="@layout/fragment_register">
+        <!--2 利用Safe Args传值-->`
+        <argument
+            android:name="class_name"
+            android:defaultValue="unknow"
+            app:argType="string" />
+    </fragment>
+</navigation>
