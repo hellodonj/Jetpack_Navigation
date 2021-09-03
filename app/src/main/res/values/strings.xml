@@ -2,4 +2,7 @@
     <string name="app_name">Jetpack_Navigation</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="app_module">JetPack_DataBinding</string>
+    <string name="text_user_info"></string>
 </resources>

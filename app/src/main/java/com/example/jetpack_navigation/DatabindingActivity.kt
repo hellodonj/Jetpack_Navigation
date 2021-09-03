@@ -15,9 +15,15 @@ class DatabindingActivity : AppCompatActivity() {
         val dataBinding: ActivityDatabindingBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_databinding)
 
-        dataBinding.user = User("djj", 18, Gender.FEMALE)
+        dataBinding.user = User("", "djj", 18, Gender.FEMALE)
 
         dataBinding.textView5.setText("SEX:")
+        //list集合
+        dataBinding.userList = listOf("list1", "list2")
+        //map集合
+        dataBinding.scoreMap = hashMapOf("list1" to 88, "list2" to 99)
+        //index
+        dataBinding.index = 1
 
     }
 }
