@@ -7,8 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.navigation.fragment.findNavController
 import com.example.jetpack_navigation.R
+import com.example.jetpack_navigation.bean.UserBean
+import com.example.jetpack_navigation.databinding.FragmentLoginBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -24,8 +28,11 @@ class LoginFragment : Fragment() {
         val bundle = arguments
         var num = bundle?.getInt("num")
         Log.i(TAG, "LoginFragment: " + num)
+        val loginBinding:FragmentLoginBinding =
+            DataBindingUtil.inflate(inflater,R.layout.fragment_login,container,false)
 
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        loginBinding.userBean = UserBean("我是登录界面","密码:654321")
+        return loginBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
