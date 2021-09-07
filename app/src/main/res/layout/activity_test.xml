@@ -3,30 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
+    <data class="EventBinding">
 
         <variable
             name="textinfo"
             type="String" />
 
         <variable
-            name="eventhandler"
+            name="eventhandle"
             type="com.example.jetpack_navigation.utlis.EventHandlers" />
-
     </data>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.SplashFragment">
-
+        tools:context=".MainActivity">
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{eventhandle::onFirstClick}"
             android:text="Button"
-            android:onClick="@{eventhandler::onFirstClick}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,26 +33,16 @@
             app:layout_constraintVertical_bias="0.1" />
 
         <TextView
-            android:id="@+id/tv_text"
+            android:id="@+id/tv_show"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{()->eventhandle.onCopyTextView(textinfo)}"
             android:text="@{textinfo}"
-            android:onClick="@{()->eventhandler.onFirstClick(textinfo)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.2" />
-
-        <com.google.android.material.checkbox.MaterialCheckBox
-            android:id="@+id/check_box"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="选择测试"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

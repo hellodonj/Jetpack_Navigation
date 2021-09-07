@@ -32,13 +32,19 @@ android {
         jvmTarget = '1.8'
     }
 
-//    buildFeatures{
-//        dataBinding true
-//    }
-
-    dataBinding{
-        enabled = true
+    buildFeatures{
+        dataBinding true
+        viewBinding true
     }
+
+
+//    dataBinding{
+//        enabled = true
+//    }
+//
+//    viewBinding{
+//        enabled = true
+//    }
 }
 
 dependencies {
@@ -55,4 +61,6 @@ dependencies {
     //Jetpack_navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 }

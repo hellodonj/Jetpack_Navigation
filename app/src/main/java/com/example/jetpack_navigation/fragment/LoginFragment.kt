@@ -20,40 +20,60 @@ import com.example.jetpack_navigation.databinding.FragmentLoginBinding
  */
 class LoginFragment : Fragment() {
 
+    //1
+    private var fragmentLoginBinding: FragmentLoginBinding? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //1
+        val binding = FragmentLoginBinding.inflate(inflater, container, false)
 
-        val bundle = arguments
-        var num = bundle?.getInt("num")
-        Log.i(TAG, "LoginFragment: " + num)
-        val loginBinding:FragmentLoginBinding =
-            DataBindingUtil.inflate(inflater,R.layout.fragment_login,container,false)
+        fragmentLoginBinding = binding
 
-        loginBinding.userBean = UserBean("我是登录界面","密码:654321")
-        return loginBinding.root
-    }
+        binding.textView.text = "登录界面"
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        binding.button.setOnClickListener {
 
-        var button = view.findViewById<Button>(R.id.button)
-        button.setOnClickListener {
-            //1 id跳转
-           // findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-
-            //2 args
-            val action = LoginFragmentDirections
-                .actionLoginFragmentToRegisterFragment()
-                .setClassName("loginFragment")
-
-            findNavController().navigate(action)
         }
+
+        return binding.root
+
+//        val bundle = arguments
+//        var num = bundle?.getInt("num")
+//        Log.i(TAG, "LoginFragment: " + num)
+//        val loginBinding:FragmentLoginBinding =
+//            DataBindingUtil.inflate(inflater,R.layout.fragment_login,container,false)
+//
+//        loginBinding.userBean = UserBean("我是登录界面","密码:654321")
+//        return loginBinding.root
     }
 
-    companion object{
-        private const val TAG = "LoginFragment"
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//        var button = view.findViewById<Button>(R.id.button)
+//        button.setOnClickListener {
+//            //1 id跳转
+//           // findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+//
+//            //2 args
+//            val action = LoginFragmentDirections
+//                .actionLoginFragmentToRegisterFragment()
+//                .setClassName("loginFragment")
+//
+//            findNavController().navigate(action)
+//        }
+//    }
+//
+//    companion object{
+//        private const val TAG = "LoginFragment"
+//    }
+
+    override fun onDestroyView() {
+        fragmentLoginBinding = null
+        super.onDestroyView()
     }
 
 }

@@ -26,19 +26,19 @@ class RegisterFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_register, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val safeArgs: RegisterFragmentArgs by navArgs()
-        var className = safeArgs.className
-
-        Log.i(TAG, "RegisterFragment:" + className)
-
-        var button = view.findViewById<Button>(R.id.button2)
-        button.setOnClickListener {
-            findNavController().popBackStack()
-        }
-    }
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//        val safeArgs: RegisterFragmentArgs by navArgs()
+//        var className = safeArgs.className
+//
+//        Log.i(TAG, "RegisterFragment:" + className)
+//
+//        var button = view.findViewById<Button>(R.id.button2)
+//        button.setOnClickListener {
+//            findNavController().popBackStack()
+//        }
+//    }
 
     companion object {
         private const val TAG = "RegisterFragment"

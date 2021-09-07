@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.example.jetpack_navigation.R
@@ -15,6 +16,8 @@ import com.example.jetpack_navigation.R
  */
 class SplashFragment : Fragment() {
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -22,6 +25,10 @@ class SplashFragment : Fragment() {
     ): View? {
         var view = inflater.inflate(R.layout.fragment_splash, container, false)
         var button3 = view.findViewById<Button>(R.id.button3)
+
+
+
+
         button3.setOnClickListener {
 
             ////1 利用id导航 传值
