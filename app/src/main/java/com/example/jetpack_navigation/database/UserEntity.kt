@@ -1,4 +1,4 @@
-package com.example.jetpack_navigation.bean
+package com.example.jetpack_navigation.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
  */
 
 @Entity(tableName = "user_database")
-data class UserDao(
+data class UserEntity(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "user_title") val title: String,
     @ColumnInfo(name = "user_content") val content: String
